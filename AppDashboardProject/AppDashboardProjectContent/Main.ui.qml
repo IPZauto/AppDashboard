@@ -9,6 +9,7 @@ Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on
 import QtQuick
 import QtQuick.Controls
 import AppDashboardProject
+import QtQuick.Studio.DesignEffects
 
 Rectangle {
     id: appRoot
@@ -22,13 +23,15 @@ Rectangle {
         id: topBar
         anchors.top: parent.top
         anchors.topMargin: 0
+        z: 2
     }
 
     Item {
         id: mainScreen
         width: appRoot.width
-        height: appRoot.height - topBar.height - menu.height
-        y: topBar.height
+        height: appRoot.height
+        anchors.top: parent.top
+        anchors.topMargin: 0
 
         NavScreen {
             height: mainScreen.height
@@ -43,6 +46,20 @@ Rectangle {
             visible: appRoot.selectedView === 1
             enabled: appRoot.selectedView === 1
         }
+
+        MusicScreen {
+            height: mainScreen.height
+            width: mainScreen.width
+            visible: appRoot.selectedView === 2
+            enabled: appRoot.selectedView === 2
+        }
+
+        ReverseScreen {
+            height: mainScreen.height
+            width: mainScreen.width
+            visible: appRoot.selectedView === 3
+            enabled: appRoot.selectedView === 3
+        }
     }
 
     CustomMenuBar {
@@ -50,12 +67,14 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
         width: appRoot.width
+        z: 2
 
         Connections {
             target: menu
             function onViewSwitched(view: int) {
                 appRoot.selectedView = view
-                topBar.title = view === 0 ? "Nav" : "Globe"
+                topBar.title = view
+                        === 0 ? "Nav" : (view === 1 ? "Globe" : (view === 2 ? "Music" : "Reverse"))
             }
         }
     }

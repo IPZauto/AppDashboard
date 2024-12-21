@@ -68,6 +68,11 @@ Item {
                 background: Image {
                     source: Qt.resolvedUrl("images/icon_music.png")
                 }
+
+                Connections {
+                    target: musicButton
+                    onClicked: root.viewSwitched(2)
+                }
             }
 
             MenuButton {
@@ -75,6 +80,11 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 background: Image {
                     source: Qt.resolvedUrl("images/icon_reverse2.png")
+                }
+
+                Connections {
+                    target: reverseButton
+                    onClicked: root.viewSwitched(3)
                 }
             }
         }

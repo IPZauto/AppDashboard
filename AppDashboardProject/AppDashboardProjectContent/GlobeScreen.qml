@@ -5,8 +5,7 @@ Rectangle {
     id: root
     width: 1920
     height: 1080
-    visible: false
-    color: "#7d358e"
+    color: "#000000"
 
     CustomText {
         text: "GLOBE"
