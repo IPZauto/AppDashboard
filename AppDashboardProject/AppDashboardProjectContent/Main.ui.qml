@@ -47,7 +47,7 @@ Rectangle {
             enabled: appRoot.selectedView === 1
         }
 
-        MusicScreen {
+        MusicScreen2 {
             height: mainScreen.height
             width: mainScreen.width
             visible: appRoot.selectedView === 2
