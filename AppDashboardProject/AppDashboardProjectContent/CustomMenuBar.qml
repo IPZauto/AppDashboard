@@ -30,7 +30,6 @@ Item {
         Row {
             width: menubar.width
             height: menubar.height
-            layoutDirection: none.none
             leftPadding: 300
             rightPadding: 300
             spacing: (menubar.width - 400 - 600) / 3

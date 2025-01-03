@@ -113,7 +113,7 @@ Rectangle {
 
     Image {
         id: left_arrow
-        source: Qt.resolvedUrl("images/left_arrow.png")
+        source: Qt.resolvedUrl("images/arrow_back_icon.png")
         width: 80
         height: 80
         anchors.verticalCenter: onOffButton.verticalCenter
@@ -130,7 +130,7 @@ Rectangle {
 
     Image {
         id: right_arrow
-        source: Qt.resolvedUrl("images/right_arrow.png")
+        source: Qt.resolvedUrl("images/arrow_forward_icon.png")
         width: 80
         height: 80
         anchors.verticalCenter: onOffButton.verticalCenter
@@ -145,7 +145,7 @@ Rectangle {
         }
     }
 
-    Column {
+    Item {
         id: _item
         width: 80
         height: 1*root.width/3 + 80
@@ -191,64 +191,11 @@ Rectangle {
             fillMode: Image.PreserveAspectFit
 
             MouseArea {
-                id: sound_icon_area
                 anchors.fill: parent
                 onClicked: manageSound();
             }
         }
     }
-
-    // Item {
-    //     id: _item
-    //     width: 80
-    //     height: 1*root.width/3 + 80
-    //     anchors.verticalCenter: parent.verticalCenter
-    //     anchors.left: parent.left
-    //     anchors.leftMargin: 50
-    //     anchors.verticalCenterOffset: 20
-
-    //     Slider {
-    //         id: slider
-    //         height: 1*root.width/3
-    //         width: 0.1*root.height
-    //         value: 0.9
-    //         anchors.bottom: parent.bottom
-    //         anchors.bottomMargin: 0
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         rotation: 180
-    //         from: 0
-    //         to: 1
-    //         stepSize: 0.1
-    //         live: true
-    //         orientation: Qt.Vertical
-    //         snapMode: Slider.SnapOnRelease
-
-    //         Connections {
-    //             target: slider
-    //             onMoved: {
-    //                 root.volume = 1 - slider.value;
-    //                 audioOutput.volume = root.volume;
-    //             }
-    //         }
-    //     }
-
-    //     Image {
-    //         id: sound_icon
-    //         width: 50
-    //         anchors.top: parent.top
-    //         anchors.bottom: slider.top
-    //         anchors.topMargin: 0
-    //         anchors.bottomMargin: 10
-    //         source: "images/sound_icon_internet31.png"
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         fillMode: Image.PreserveAspectFit
-
-    //         MouseArea {
-    //             anchors.fill: parent
-    //             onClicked: manageSound();
-    //         }
-    //     }
-    // }
 
     ProgressBar {
         id: progressBar
